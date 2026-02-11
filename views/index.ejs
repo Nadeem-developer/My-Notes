@@ -1,0 +1,21 @@
+<%- include ("partials/main_header.ejs") %>
+<div class="home_main_conatiner">
+    <% all_book.forEach(book=>{ %>
+     <div class="books">
+
+        <div class="index_img">
+       <a href="/note/<%= book.cover_i %>"><img src="https://covers.openlibrary.org/b/id/<%= encodeURIComponent(book.cover_i)%>-L.jpg" alt="<%= book.title %>"></a> 
+        </div>
+        <div class="index_data">
+       <a href="/note/<%=book.cover_i%>"><h2><%= book.title %></h2></a>
+        <a href="/note/<%=book.cover_i%>"><p>
+            <% book.author.forEach(author=>{ %>
+                <%= author %>
+            <% }) %>
+        </p></a>
+        </div>
+
+    </div>
+    <% }) %>
+</div>
+    <%- include("partials/footer.ejs") %>

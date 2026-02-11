@@ -1,0 +1,34 @@
+<%- include ("partials/main_header.ejs") %>
+    <div class="enter_note_book_details_main">
+        <img class="note_img" src="https://covers.openlibrary.org/b/id/<%=data.cover_i%>-L.jpg">
+        <div class="enter_note_book_details">
+            <h2>
+                <%=data.title%>
+            </h2>
+            <p>Writen by</p>
+            <p class="enter_note_author">
+                <% data.author.forEach(author=> { %>
+                    <%=author%>
+                        <%=data.author.length>1 ? ", " : "" %>
+                            <%}); %>
+            </p>
+            <p>published in</p>
+            <p>
+                <%= data.publish_year %>
+            </p>
+        </div>
+    </div>
+    <div class="note_container_main">
+        <div class="note_container">
+                <p>write your notes 👇<p>
+            <form action="/submit_edit_note" method="post" class="note_form">
+                <input type="hidden" name="id" value="<%= data.data_id %>">
+                <input type="hidden" name="cover_i" value="<%= data.cover_i %>">
+                <input type="hidden" name="note" class="noteInput">
+                <div id="editor"><%- data.note %></div>
+                <input type="submit" name="note_submit" id="note_submit" class="btn submit">
+            </form>
+        </div>
+    </div>
+
+    <%- include("partials/footer.ejs") %>

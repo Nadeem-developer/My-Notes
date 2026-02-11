@@ -1,0 +1,39 @@
+<%- include ("partials/main_header.ejs") %>
+<div class="notes_main">
+    <div class="notes_book_details_main">
+        <div class="notes_img">
+            <img src="https://covers.openlibrary.org/b/id/<%= encodeURIComponent(notes.cover_i)%>-L.jpg"
+                alt="<%= notes.title %>">
+        </div>
+        <div class="notes_book_details">
+            <h2>
+                <%= notes.title %>
+            </h2>
+            <p>writen by</p>
+            <p class="notes_author_name">
+                <% notes.author.forEach(author=> { %>
+                    <%= author %>
+                        <% }); %>
+            </p>
+            <p>published in</p>
+            <p class="notes_publish_year">
+                <%= notes.publish_year %>
+            </p>
+            <% if(notes.description !=null){%>
+                <p class="description_heading">description :-</p>
+                <p>
+                    <%= notes.description %>
+                </p>
+                <% } %>
+        </div>
+    </div>
+    <div class="notes_container">
+        <p>Your Notes</p>
+        <div class="notes_edit_delete">
+        <a href="/edit/<%= notes.cover_i %>" class="btn edit_btn">Edit</a>
+        <a href="/delete/<%= notes.cover_i %>" class="btn delete_btn" onclick="return confirm ('are you sure do you want to delete this notes?')">Delete</a>
+        </div>
+        <div class="note"><%- notes.note %></div>
+    </div>
+    </div>
+    <%- include("partials/footer.ejs") %>

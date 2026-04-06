@@ -277,6 +277,7 @@ passport.use(
       }
     } catch (err) {
       console.log(err);
+      return cb(err);
     }
   }),
 );

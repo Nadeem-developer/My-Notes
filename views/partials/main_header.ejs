@@ -14,13 +14,17 @@
     <div class="main_head">
       <h1><a href="/">MY NOTES</a></h1>
       <div class="main_head_left">
+        <!-- dark light theme btn -->
         <input id="checkbox" type="checkbox" />
         <label for="checkbox" class="checkbox_lable">
             <div class="toggle"></div>
           <span class="material-symbols-outlined sun"> sunny </span>
           <span class="material-symbols-outlined moon"> bedtime </span>
         </label>
-        <a class="btn" href="/">Owner Login</a>
+        <!-- ******************************** -->
+
+        <a class="logout btn" href="/logout">Logout</a>
+        <input class="isLogin" type="hidden" name="isLogin" value=<%= isLogin %>>
       </div>
     </div>
-    <%- include("sub_header.ejs") %>
+    <%# include("sub_header.ejs") %>

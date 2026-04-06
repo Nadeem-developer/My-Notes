@@ -5,14 +5,14 @@
             <h2>
                 <%=data.title%>
             </h2>
-            <p>Writen by</p>
+            <p>Written by</p>
             <p class="enter_note_author">
                 <% data.author.forEach(author=> { %>
                     <%=author%>
                         <%=data.author.length>1 ? ", " : "" %>
                             <%}); %>
             </p>
-            <p>published in</p>
+            <p>Published in</p>
             <p>
                 <%= data.publish_year %>
             </p>
@@ -20,7 +20,7 @@
     </div>
     <div class="note_container_main">
         <div class="note_container">
-                <p>write your notes 👇<p>
+                <p>Write your notes 👇</p>
             <form action="/submit_edit_note" method="post" class="note_form">
                 <input type="hidden" name="id" value="<%= data.data_id %>">
                 <input type="hidden" name="cover_i" value="<%= data.cover_i %>">

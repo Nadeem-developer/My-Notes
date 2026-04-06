@@ -1,14 +1,16 @@
 <%- include ("partials/main_header.ejs") %>
+<%- include ("partials/sub_header.ejs") %>
 <div class="home_main_conatiner">
+    <% if(all_book && all_book.length > 0){ %>
     <% all_book.forEach(book=>{ %>
      <div class="books">
 
         <div class="index_img">
-       <a href="/note/<%= book.cover_i %>"><img src="https://covers.openlibrary.org/b/id/<%= encodeURIComponent(book.cover_i)%>-L.jpg" alt="<%= book.title %>"></a> 
+       <a href="/note/<%= user %>/<%= book.cover_i%>"><img src="https://covers.openlibrary.org/b/id/<%= encodeURIComponent(book.cover_i)%>-L.jpg" alt="<%= book.title %>"></a> 
         </div>
         <div class="index_data">
-       <a href="/note/<%=book.cover_i%>"><h2><%= book.title %></h2></a>
-        <a href="/note/<%=book.cover_i%>"><p>
+       <a href="/note/<%= user %>/<%=book.cover_i%>"><h2><%= book.title %></h2></a>
+        <a href="/note/<%= user %>/<%=book.cover_i%>"><p>
             <% book.author.forEach(author=>{ %>
                 <%= author %>
             <% }) %>
@@ -17,5 +19,10 @@
 
     </div>
     <% }) %>
+    <% }else{ %>
+        <div class="no_notes">
+        <p>There are no notes. Please <a href="/add">add one</a>.</p>
+        </div>
+        <% } %>
 </div>
     <%- include("partials/footer.ejs") %>

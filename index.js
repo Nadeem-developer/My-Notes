@@ -37,14 +37,12 @@ app.use((req, res, next) => {
   next();
 });
 
-const db = new pg.Client({
+const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
 });
-
-db.connect();
 
 // all get route
 

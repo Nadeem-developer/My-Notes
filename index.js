@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 import pg from "pg";
+import { Pool } from "pg";
 import bcrypt from "bcrypt";
 import passport from "passport";
 import { Strategy } from "passport-local";
@@ -37,7 +38,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const db = new pg.Pool({
+const db = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
